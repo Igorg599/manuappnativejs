@@ -1,0 +1,102 @@
+{
+  "items": {
+    "logo": {
+      "src": "./assets/img/logo.svg",
+      "width": 24,
+      "name": "Libra"
+    },
+    "gamburger": {
+      "src": "./assets/img/gamburger.svg",
+      "width": 24,
+      "name": "Gamburger"
+    },
+    "iconsleftmenu": [
+      {
+        "id": 1,
+        "src": "./assets/img/task.svg",
+        "width": 24,
+        "name": "Task"
+      },
+      {
+        "id": 2,
+        "src": "./assets/img/calendar.svg",
+        "width": 24,
+        "name": "Calendar"
+      },
+      {
+        "id": 3,
+        "src": "./assets/img/staff.svg",
+        "width": 24,
+        "name": "Staff"
+      },
+      {
+        "id": 4,
+        "src": "./assets/img/replacement.svg",
+        "width": 24,
+        "name": "Replacement"
+      },
+      {
+        "id": 5,
+        "src": "./assets/img/link.svg",
+        "width": 24,
+        "name": "Link"
+      },
+      {
+        "id": 6,
+        "src": "./assets/img/education.svg",
+        "width": 24,
+        "name": "Education"
+      },
+      {
+        "id": 7,
+        "src": "./assets/img/game.svg",
+        "width": 24,
+        "name": "Game"
+      },
+      {
+        "id": 8,
+        "src": "./assets/img/feedback.svg",
+        "width": 24,
+        "name": "Feedback"
+      },
+      {
+        "id": 9,
+        "src": "./assets/img/checks.svg",
+        "width": 24,
+        "name": "Checks"
+      },
+      {
+        "id": 10,
+        "src": "./assets/img/more.svg",
+        "width": 24,
+        "name": "More"
+      }
+    ],
+    "iconsrightmenu": [
+      {
+        "id": 1,
+        "src": "./assets/img/coins.svg",
+        "width": 24,
+        "name": "146 480"
+      },
+      {
+        "id": 2,
+        "src": "./assets/img/bell.svg",
+        "width": 24,
+        "name": "Notification"
+      },
+      {
+        "id": 3,
+        "src": "./assets/img/persone.svg",
+        "width": 24,
+        "name": "Profile"
+      },
+      {
+        "id": 4,
+        "src": "./assets/img/exit.svg",
+        "width": 24,
+        "name": "Log out"
+      }
+    ]
+  }
+}
