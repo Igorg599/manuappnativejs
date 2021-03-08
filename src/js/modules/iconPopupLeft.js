@@ -1,5 +1,6 @@
 import {getResource} from '../services';
 import visibleIconPopupLeftNav from './visibleIconPopupLeftNav';
+import setVisibleLabel from './setVisibleLabel';
 
 const iconPopupLeft = () => {
     class IconPopupLeft {
@@ -27,6 +28,7 @@ const iconPopupLeft = () => {
                 new IconPopupLeft(item.src, item.width, item.name, ".header .navleft__popup ul").render();
             });
             visibleIconPopupLeftNav('.navleft__popup ul li');
+            setVisibleLabel('.navleft__popup ul li', '.navleft__label');
         });
 }
 

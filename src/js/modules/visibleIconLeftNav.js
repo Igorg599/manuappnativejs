@@ -64,13 +64,9 @@ const visibleIconLeftNav = (iconSelector) => {
                 }
             })
         }
-        if (document.documentElement.clientWidth < 510) {
-            icon.forEach((item, index) => {
-                if (index > 0) {
-                    item.style.display = 'none';
-                } else {
-                    item.style.display = 'flex';
-                }
+        if (document.documentElement.clientWidth < 511) {
+            icon.forEach((item) => {
+                item.style.display = 'none';
             })
         }
     }

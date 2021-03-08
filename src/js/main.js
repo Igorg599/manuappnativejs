@@ -1,5 +1,6 @@
 import logo from './modules/logo';
 import iconLeftNav from './modules/iconLeftNav';
+import iconLabel from './modules/iconLabel';
 import iconRightNav from './modules/iconRightNav';
 import coin from './modules/coin';
 import iconLeftGamburger from './modules/iconLeftGamburger';
@@ -11,8 +12,9 @@ window.addEventListener('DOMContentLoaded', function() {
     logo();
     iconLeftNav();
     coin();
-    iconRightNav();
+    iconLabel();
     iconLeftGamburger();
+    iconRightNav();
     iconRightGamburger();
     iconPopupRight();
     iconPopupLeft();

@@ -97,12 +97,14 @@
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_logo__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/logo */ "./src/js/modules/logo.js");
 /* harmony import */ var _modules_iconLeftNav__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/iconLeftNav */ "./src/js/modules/iconLeftNav.js");
-/* harmony import */ var _modules_iconRightNav__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/iconRightNav */ "./src/js/modules/iconRightNav.js");
-/* harmony import */ var _modules_coin__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/coin */ "./src/js/modules/coin.js");
-/* harmony import */ var _modules_iconLeftGamburger__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/iconLeftGamburger */ "./src/js/modules/iconLeftGamburger.js");
-/* harmony import */ var _modules_iconRightGamburger__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./modules/iconRightGamburger */ "./src/js/modules/iconRightGamburger.js");
-/* harmony import */ var _modules_iconPopupRight__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./modules/iconPopupRight */ "./src/js/modules/iconPopupRight.js");
-/* harmony import */ var _modules_iconPopupLeft__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./modules/iconPopupLeft */ "./src/js/modules/iconPopupLeft.js");
+/* harmony import */ var _modules_iconLabel__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/iconLabel */ "./src/js/modules/iconLabel.js");
+/* harmony import */ var _modules_iconRightNav__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/iconRightNav */ "./src/js/modules/iconRightNav.js");
+/* harmony import */ var _modules_coin__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/coin */ "./src/js/modules/coin.js");
+/* harmony import */ var _modules_iconLeftGamburger__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./modules/iconLeftGamburger */ "./src/js/modules/iconLeftGamburger.js");
+/* harmony import */ var _modules_iconRightGamburger__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./modules/iconRightGamburger */ "./src/js/modules/iconRightGamburger.js");
+/* harmony import */ var _modules_iconPopupRight__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./modules/iconPopupRight */ "./src/js/modules/iconPopupRight.js");
+/* harmony import */ var _modules_iconPopupLeft__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./modules/iconPopupLeft */ "./src/js/modules/iconPopupLeft.js");
+
 
 
 
@@ -114,12 +116,13 @@ __webpack_require__.r(__webpack_exports__);
 window.addEventListener('DOMContentLoaded', function () {
   Object(_modules_logo__WEBPACK_IMPORTED_MODULE_0__["default"])();
   Object(_modules_iconLeftNav__WEBPACK_IMPORTED_MODULE_1__["default"])();
-  Object(_modules_coin__WEBPACK_IMPORTED_MODULE_3__["default"])();
-  Object(_modules_iconRightNav__WEBPACK_IMPORTED_MODULE_2__["default"])();
-  Object(_modules_iconLeftGamburger__WEBPACK_IMPORTED_MODULE_4__["default"])();
-  Object(_modules_iconRightGamburger__WEBPACK_IMPORTED_MODULE_5__["default"])();
-  Object(_modules_iconPopupRight__WEBPACK_IMPORTED_MODULE_6__["default"])();
-  Object(_modules_iconPopupLeft__WEBPACK_IMPORTED_MODULE_7__["default"])();
+  Object(_modules_coin__WEBPACK_IMPORTED_MODULE_4__["default"])();
+  Object(_modules_iconLabel__WEBPACK_IMPORTED_MODULE_2__["default"])();
+  Object(_modules_iconLeftGamburger__WEBPACK_IMPORTED_MODULE_5__["default"])();
+  Object(_modules_iconRightNav__WEBPACK_IMPORTED_MODULE_3__["default"])();
+  Object(_modules_iconRightGamburger__WEBPACK_IMPORTED_MODULE_6__["default"])();
+  Object(_modules_iconPopupRight__WEBPACK_IMPORTED_MODULE_7__["default"])();
+  Object(_modules_iconPopupLeft__WEBPACK_IMPORTED_MODULE_8__["default"])();
 });
 
 /***/ }),
@@ -164,6 +167,51 @@ const coin = () => {
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (coin);
+
+/***/ }),
+
+/***/ "./src/js/modules/iconLabel.js":
+/*!*************************************!*\
+  !*** ./src/js/modules/iconLabel.js ***!
+  \*************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _services__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../services */ "./src/js/services.js");
+
+
+const iconLabel = () => {
+  class IconLabel {
+    constructor(src, width, name, parentSelector) {
+      this.src = src;
+      this.width = width;
+      this.name = name;
+      this.parent = document.querySelector(parentSelector);
+    }
+
+    render() {
+      const element = document.createElement('div');
+      this.classes = "navleft__label";
+      element.classList.add(this.classes);
+      element.innerHTML = `
+                <img width=${this.width} src=${this.src} alt='icon'/>
+                <p>${this.name}</p>
+            `;
+      this.parent.append(element);
+    }
+
+  }
+
+  Object(_services__WEBPACK_IMPORTED_MODULE_0__["getResource"])('db.json').then(data => {
+    data.items.iconsleftmenu.forEach(item => {
+      new IconLabel(item.src, item.width, item.name, ".header .navleft").render();
+    });
+  });
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (iconLabel);
 
 /***/ }),
 
@@ -271,6 +319,8 @@ const iconLeftNav = () => {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _services__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../services */ "./src/js/services.js");
 /* harmony import */ var _visibleIconPopupLeftNav__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./visibleIconPopupLeftNav */ "./src/js/modules/visibleIconPopupLeftNav.js");
+/* harmony import */ var _setVisibleLabel__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./setVisibleLabel */ "./src/js/modules/setVisibleLabel.js");
+
 
 
 
@@ -299,6 +349,7 @@ const iconPopupLeft = () => {
       new IconPopupLeft(item.src, item.width, item.name, ".header .navleft__popup ul").render();
     });
     Object(_visibleIconPopupLeftNav__WEBPACK_IMPORTED_MODULE_1__["default"])('.navleft__popup ul li');
+    Object(_setVisibleLabel__WEBPACK_IMPORTED_MODULE_2__["default"])('.navleft__popup ul li', '.navleft__label');
   });
 };
 
@@ -482,6 +533,37 @@ const logo = () => {
 
 /***/ }),
 
+/***/ "./src/js/modules/setVisibleLabel.js":
+/*!*******************************************!*\
+  !*** ./src/js/modules/setVisibleLabel.js ***!
+  \*******************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+const setVisibleLabel = (popupSelector, iconsSelector) => {
+  const itemsPopup = document.querySelectorAll(popupSelector);
+  const itemsLabel = document.querySelectorAll(iconsSelector);
+  itemsLabel.forEach((item, index) => {
+    if (index !== 0) {
+      item.style.display = 'none';
+    }
+  });
+  itemsPopup.forEach((item, index) => {
+    item.addEventListener('click', () => {
+      itemsLabel.forEach(item => {
+        item.style.display = 'none';
+      });
+      itemsLabel[index].style = 'flex';
+    });
+  });
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (setVisibleLabel);
+
+/***/ }),
+
 /***/ "./src/js/modules/setVisiblePopupLeft.js":
 /*!***********************************************!*\
   !*** ./src/js/modules/setVisiblePopupLeft.js ***!
@@ -637,13 +719,9 @@ const visibleIconLeftNav = iconSelector => {
       });
     }
 
-    if (document.documentElement.clientWidth < 510) {
-      icon.forEach((item, index) => {
-        if (index > 0) {
-          item.style.display = 'none';
-        } else {
-          item.style.display = 'flex';
-        }
+    if (document.documentElement.clientWidth < 511) {
+      icon.forEach(item => {
+        item.style.display = 'none';
       });
     }
   }
