@@ -26,7 +26,7 @@ const iconLeftNav = () => {
 
     getResource('db.json')
         .then(data => {
-            data.items.iconsleftmenu.filter(item => item.id < 10).forEach((item) => {
+            data.items.iconsleftmenu.forEach((item) => {
                 new IconLeftNav(item.src, item.width, item.name, ".header .navleft").render();
             });
             visibleIconLeftNav('.navleft__icons');

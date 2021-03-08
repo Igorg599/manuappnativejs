@@ -1,18 +1,9 @@
-const visibleIconLeftNav = (iconSelector) => {
+const visibleIconPopupLeftNav = (iconSelector) => {
     const icon = document.querySelectorAll(iconSelector)
-    function setSizeScreen() {
-        if (document.documentElement.clientWidth >= 1014) {
-            icon.forEach((item, index) => {
-                if (index > 8) {
-                    item.style.display = 'none';
-                } else {
-                    item.style.display = 'flex';
-                }
-            })
-        }
+    function setSizeScreen () {
         if (document.documentElement.clientWidth < 1014) {
             icon.forEach((item, index) => {
-                if (index > 7 && index !== 9) {
+                if (index < 8) {
                     item.style.display = 'none';
                 } else {
                     item.style.display = 'flex';
@@ -21,7 +12,7 @@ const visibleIconLeftNav = (iconSelector) => {
         }
         if (document.documentElement.clientWidth < 926) {
             icon.forEach((item, index) => {
-                if (index > 6 && index !== 9) {
+                if (index < 7) {
                     item.style.display = 'none';
                 } else {
                     item.style.display = 'flex';
@@ -30,7 +21,7 @@ const visibleIconLeftNav = (iconSelector) => {
         }
         if (document.documentElement.clientWidth < 838) {
             icon.forEach((item, index) => {
-                if (index > 5 && index !== 9) {
+                if (index < 6) {
                     item.style.display = 'none';
                 } else {
                     item.style.display = 'flex';
@@ -39,7 +30,7 @@ const visibleIconLeftNav = (iconSelector) => {
         }
         if (document.documentElement.clientWidth < 750) {
             icon.forEach((item, index) => {
-                if (index > 4 && index !== 9) {
+                if (index < 5) {
                     item.style.display = 'none';
                 } else {
                     item.style.display = 'flex';
@@ -48,7 +39,7 @@ const visibleIconLeftNav = (iconSelector) => {
         }
         if (document.documentElement.clientWidth < 662) {
             icon.forEach((item, index) => {
-                if (index > 3 && index !== 9) {
+                if (index < 4) {
                     item.style.display = 'none';
                 } else {
                     item.style.display = 'flex';
@@ -57,7 +48,7 @@ const visibleIconLeftNav = (iconSelector) => {
         }
         if (document.documentElement.clientWidth < 574) {
             icon.forEach((item, index) => {
-                if (index > 2 && index !== 9) {
+                if (index < 3) {
                     item.style.display = 'none';
                 } else {
                     item.style.display = 'flex';
@@ -65,15 +56,19 @@ const visibleIconLeftNav = (iconSelector) => {
             })
         }
         if (document.documentElement.clientWidth < 510) {
-            icon.forEach((item) => {
-                item.style.display = 'none';
+            icon.forEach((item, index) => {
+                if (index > 8) {
+                    item.style.display = 'none';
+                } else {
+                    item.style.display = 'flex';
+                }
             })
         }
-    }
+    };
     setSizeScreen();
     window.addEventListener('resize', () => {
         setSizeScreen();
     });
 }
 
-export default visibleIconLeftNav;
+export default visibleIconPopupLeftNav;

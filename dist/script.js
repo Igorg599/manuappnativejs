@@ -249,7 +249,7 @@ const iconLeftNav = () => {
   }
 
   Object(_services__WEBPACK_IMPORTED_MODULE_0__["getResource"])('db.json').then(data => {
-    data.items.iconsleftmenu.filter(item => item.id < 10).forEach(item => {
+    data.items.iconsleftmenu.forEach(item => {
       new IconLeftNav(item.src, item.width, item.name, ".header .navleft").render();
     });
     Object(_visibleIconLeftNav__WEBPACK_IMPORTED_MODULE_1__["default"])('.navleft__icons');
@@ -270,6 +270,8 @@ const iconLeftNav = () => {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _services__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../services */ "./src/js/services.js");
+/* harmony import */ var _visibleIconPopupLeftNav__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./visibleIconPopupLeftNav */ "./src/js/modules/visibleIconPopupLeftNav.js");
+
 
 
 const iconPopupLeft = () => {
@@ -296,6 +298,7 @@ const iconPopupLeft = () => {
     data.items.iconsleftmenu.filter(item => item.id < 10).forEach(item => {
       new IconPopupLeft(item.src, item.width, item.name, ".header .navleft__popup ul").render();
     });
+    Object(_visibleIconPopupLeftNav__WEBPACK_IMPORTED_MODULE_1__["default"])('.navleft__popup ul li');
   });
 };
 
@@ -550,16 +553,21 @@ const setVisiblePopupRight = (popupSelector, iconSelector) => {
 __webpack_require__.r(__webpack_exports__);
 const visibleIconLeftNav = iconSelector => {
   const icon = document.querySelectorAll(iconSelector);
-  window.addEventListener('resize', () => {
+
+  function setSizeScreen() {
     if (document.documentElement.clientWidth >= 1014) {
       icon.forEach((item, index) => {
-        item.style.display = 'flex';
+        if (index > 8) {
+          item.style.display = 'none';
+        } else {
+          item.style.display = 'flex';
+        }
       });
     }
 
     if (document.documentElement.clientWidth < 1014) {
       icon.forEach((item, index) => {
-        if (index > 7) {
+        if (index > 7 && index !== 9) {
           item.style.display = 'none';
         } else {
           item.style.display = 'flex';
@@ -569,7 +577,7 @@ const visibleIconLeftNav = iconSelector => {
 
     if (document.documentElement.clientWidth < 926) {
       icon.forEach((item, index) => {
-        if (index > 6) {
+        if (index > 6 && index !== 9) {
           item.style.display = 'none';
         } else {
           item.style.display = 'flex';
@@ -579,7 +587,7 @@ const visibleIconLeftNav = iconSelector => {
 
     if (document.documentElement.clientWidth < 838) {
       icon.forEach((item, index) => {
-        if (index > 5) {
+        if (index > 5 && index !== 9) {
           item.style.display = 'none';
         } else {
           item.style.display = 'flex';
@@ -589,7 +597,7 @@ const visibleIconLeftNav = iconSelector => {
 
     if (document.documentElement.clientWidth < 750) {
       icon.forEach((item, index) => {
-        if (index > 4) {
+        if (index > 4 && index !== 9) {
           item.style.display = 'none';
         } else {
           item.style.display = 'flex';
@@ -599,7 +607,7 @@ const visibleIconLeftNav = iconSelector => {
 
     if (document.documentElement.clientWidth < 662) {
       icon.forEach((item, index) => {
-        if (index > 3) {
+        if (index > 3 && index !== 9) {
           item.style.display = 'none';
         } else {
           item.style.display = 'flex';
@@ -609,17 +617,123 @@ const visibleIconLeftNav = iconSelector => {
 
     if (document.documentElement.clientWidth < 574) {
       icon.forEach((item, index) => {
-        if (index > 2) {
+        if (index > 2 && index !== 9) {
           item.style.display = 'none';
         } else {
           item.style.display = 'flex';
         }
       });
     }
+
+    if (document.documentElement.clientWidth < 510) {
+      icon.forEach(item => {
+        item.style.display = 'none';
+      });
+    }
+  }
+
+  setSizeScreen();
+  window.addEventListener('resize', () => {
+    setSizeScreen();
   });
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (visibleIconLeftNav);
+
+/***/ }),
+
+/***/ "./src/js/modules/visibleIconPopupLeftNav.js":
+/*!***************************************************!*\
+  !*** ./src/js/modules/visibleIconPopupLeftNav.js ***!
+  \***************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+const visibleIconPopupLeftNav = iconSelector => {
+  const icon = document.querySelectorAll(iconSelector);
+
+  function setSizeScreen() {
+    if (document.documentElement.clientWidth < 1014) {
+      icon.forEach((item, index) => {
+        if (index < 8) {
+          item.style.display = 'none';
+        } else {
+          item.style.display = 'flex';
+        }
+      });
+    }
+
+    if (document.documentElement.clientWidth < 926) {
+      icon.forEach((item, index) => {
+        if (index < 7) {
+          item.style.display = 'none';
+        } else {
+          item.style.display = 'flex';
+        }
+      });
+    }
+
+    if (document.documentElement.clientWidth < 838) {
+      icon.forEach((item, index) => {
+        if (index < 6) {
+          item.style.display = 'none';
+        } else {
+          item.style.display = 'flex';
+        }
+      });
+    }
+
+    if (document.documentElement.clientWidth < 750) {
+      icon.forEach((item, index) => {
+        if (index < 5) {
+          item.style.display = 'none';
+        } else {
+          item.style.display = 'flex';
+        }
+      });
+    }
+
+    if (document.documentElement.clientWidth < 662) {
+      icon.forEach((item, index) => {
+        if (index < 4) {
+          item.style.display = 'none';
+        } else {
+          item.style.display = 'flex';
+        }
+      });
+    }
+
+    if (document.documentElement.clientWidth < 574) {
+      icon.forEach((item, index) => {
+        if (index < 3) {
+          item.style.display = 'none';
+        } else {
+          item.style.display = 'flex';
+        }
+      });
+    }
+
+    if (document.documentElement.clientWidth < 510) {
+      icon.forEach((item, index) => {
+        if (index > 8) {
+          item.style.display = 'none';
+        } else {
+          item.style.display = 'flex';
+        }
+      });
+    }
+  }
+
+  ;
+  setSizeScreen();
+  window.addEventListener('resize', () => {
+    setSizeScreen();
+  });
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (visibleIconPopupLeftNav);
 
 /***/ }),
 

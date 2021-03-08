@@ -1,4 +1,5 @@
 import {getResource} from '../services';
+import visibleIconPopupLeftNav from './visibleIconPopupLeftNav';
 
 const iconPopupLeft = () => {
     class IconPopupLeft {
@@ -25,6 +26,7 @@ const iconPopupLeft = () => {
             data.items.iconsleftmenu.filter(item => item.id < 10).forEach((item) => {
                 new IconPopupLeft(item.src, item.width, item.name, ".header .navleft__popup ul").render();
             });
+            visibleIconPopupLeftNav('.navleft__popup ul li');
         });
 }
 

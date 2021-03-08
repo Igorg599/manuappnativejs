@@ -217,7 +217,7 @@ code {
   }
   .navleft__popup {
     position: absolute;
-    display: none;
+    display: block;
     right: 0;
     margin-top: 53px;
     margin-right: 5px;
