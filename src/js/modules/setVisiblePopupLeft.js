@@ -9,7 +9,7 @@ const setVisiblePopupRight = (popupSelector, iconSelector) => {
         }
     })
     window.addEventListener('click', (event) => {
-        if (event.target !== icon && event.target !== document.querySelector('.navright__gamburger_label') && event.target !== document.querySelector('.navright__gamburger img')) {
+        if (event.target !== icon && event.target !== document.querySelector('.navleft__gamburger_label') && event.target !== document.querySelector('.navleft__gamburger img')) {
             popup.style.display = 'none';
         }
     })

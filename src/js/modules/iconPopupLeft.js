@@ -1,8 +1,7 @@
 import {getResource} from '../services';
-import visibleIconLeftNav from './visibleIconLeftNav';
 
-const iconLeftNav = () => {
-    class IconLeftNav {
+const iconPopupLeft = () => {
+    class IconPopupLeft {
         constructor(src, width, name, parentSelector) {
             this.src = src;
             this.width = width;
@@ -11,14 +10,11 @@ const iconLeftNav = () => {
         }
 
         render() {
-            const element = document.createElement('div');
-
-            this.classes = "navleft__icons";
-            element.classList.add(this.classes);
+            const element = document.createElement('li');
 
             element.innerHTML = `
                 <img width=${this.width} src=${this.src} alt='icon'/>
-                <p>${this.name}</p>
+                <p>${this.name}</p>  
             `;
             this.parent.append(element);
         }
@@ -27,10 +23,9 @@ const iconLeftNav = () => {
     getResource('db.json')
         .then(data => {
             data.items.iconsleftmenu.filter(item => item.id < 10).forEach((item) => {
-                new IconLeftNav(item.src, item.width, item.name, ".header .navleft").render();
+                new IconPopupLeft(item.src, item.width, item.name, ".header .navleft__popup ul").render();
             });
-            visibleIconLeftNav('.navleft__icons');
         });
 }
 
-export default iconLeftNav;
+export default iconPopupLeft;

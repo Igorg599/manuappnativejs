@@ -2,16 +2,18 @@ import logo from './modules/logo';
 import iconLeftNav from './modules/iconLeftNav';
 import iconRightNav from './modules/iconRightNav';
 import coin from './modules/coin';
+import iconLeftGamburger from './modules/iconLeftGamburger';
 import iconRightGamburger from './modules/iconRightGamburger';
 import iconPopupRight from './modules/iconPopupRight';
-import setVisiblePopupRight from './modules/setVisiblePopupRight';
+import iconPopupLeft from './modules/iconPopupLeft';
 
 window.addEventListener('DOMContentLoaded', function() {
     logo();
     iconLeftNav();
     coin();
     iconRightNav();
+    iconLeftGamburger();
     iconRightGamburger();
     iconPopupRight();
-    setVisiblePopupRight('.navright__popup', '.navright__gamburger');
+    iconPopupLeft();
 });

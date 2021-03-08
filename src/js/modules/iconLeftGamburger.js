@@ -1,8 +1,8 @@
 import {getResource} from '../services';
-import setVisiblePopupRight from './setVisiblePopupRight'
+import setVisiblePopupLeft from './setVisiblePopupLeft';
 
-const iconRightGamburger = () => {
-    class IconRightGamburger {
+const iconLeftGamburger = () => {
+    class IconLeftGamburger {
         constructor(src, width, name, parentSelector) {
             this.src = src;
             this.width = width;
@@ -13,11 +13,11 @@ const iconRightGamburger = () => {
         render() {
             const element = document.createElement('div');
 
-            element.classList.add('navright__gamburger');
+            element.classList.add('navleft__gamburger');
 
             element.innerHTML = `
                 <img width=${this.width} src=${this.src} alt='coin'/>
-                <div class='navright__gamburger_label'/>
+                <div class='navleft__gamburger_label'/>
             `;
             this.parent.append(element);
         }
@@ -25,9 +25,9 @@ const iconRightGamburger = () => {
 
     getResource('db.json')
         .then(data => {
-            new IconRightGamburger(data.items.iconsrightmenu[2].src, data.items.iconsrightmenu[2].width, data.items.iconsrightmenu[2].name, ".header .navright").render();
-            setVisiblePopupRight('.navright__popup', '.navright__gamburger');
+            new IconLeftGamburger(data.items.gamburger.src, data.items.gamburger.width, data.items.gamburger.name, ".header .navright").render();
+            setVisiblePopupLeft('.navleft__popup', '.navleft__gamburger');
         });
 }
 
-export default iconRightGamburger;
+export default iconLeftGamburger;
